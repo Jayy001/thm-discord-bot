@@ -75,10 +75,12 @@ class RaidAlerts(commands.Cog, name="Raid Alerts"):
 
     @commands.command(name="check_set", description="Sets config", hidden=True)
     @commands.has_any_role("Lead Mod", "admin")
-    async def check_set(self, ctx, image, age):
+    async def check_set(self, ctx, image, age, raid_time, max_raid_users):
 
         self.checks["Picture"] = image
         self.checks["Age"] = age
+        raid_time = raid_time
+        max_raid_users = raid_users
 
         await ctx.send("Set sucesfully")
 
