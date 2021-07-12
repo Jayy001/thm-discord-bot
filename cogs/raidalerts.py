@@ -75,14 +75,18 @@ class RaidAlerts(commands.Cog, name="Raid Alerts"):
 
     @commands.command(name="check_set", description="Sets config", hidden=True)
     @commands.has_any_role("Lead Mod", "admin")
-    async def check_set(self, ctx, image, age, raid_time, max_raid_users):
+    async def check_set(self, ctx, image, age, raid_time, raid_users):
+        try:
+            self.checks["Age"] = int(age)
+            raid_time = int(raid_time)
+            max_raid_users = int(raid_users)
+        except ValueError:
+            await ctx.send("You have given an invalid type")
+            return
+            
+        self.checks["Picture"] = image
 
-        self.checks["Picture"] = bool(image)
-        self.checks["Age"] = int(age)
-        raid_time = int(raid_time)
-        max_raid_users = int(raid_users)
-
-        await ctx.send("Set successfully")
+        await ctx.send("Set sucesfully")
 
     async def ban_raiders(self, channel):
         for member in self.current_raiders:
