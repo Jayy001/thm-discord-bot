@@ -29,7 +29,8 @@
     "cogs.pingmods",
     "cogs.moderation",
     "cogs.cracking",
-    "cogs.autoban"
+    "cogs.autoban",
+    "cog.raidalerts"
   ],
   "disabled_cogs": [],
   "info": {
@@ -128,5 +129,11 @@
     "room_default": "data/room_default.json",
     "monthly_leaderboard": "data/monthly.txt",
     "stats": "data/stats.json"
+  },
+  "raid_threshold": {
+    "time":60,
+    "users":15,
+    "age":7,
+    "picture":"True"
   }
 }
