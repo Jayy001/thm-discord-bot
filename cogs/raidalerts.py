@@ -77,12 +77,12 @@ class RaidAlerts(commands.Cog, name="Raid Alerts"):
     @commands.has_any_role("Lead Mod", "admin")
     async def check_set(self, ctx, image, age, raid_time, max_raid_users):
 
-        self.checks["Picture"] = image
-        self.checks["Age"] = age
-        raid_time = raid_time
-        max_raid_users = raid_users
+        self.checks["Picture"] = bool(image)
+        self.checks["Age"] = int(age)
+        raid_time = int(raid_time)
+        max_raid_users = int(raid_users)
 
-        await ctx.send("Set sucesfully")
+        await ctx.send("Set successfully")
 
     async def ban_raiders(self, channel):
         for member in self.current_raiders:
